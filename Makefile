@@ -1,6 +1,6 @@
 CC=gcc
 SRC=src
-CFLAGS=-g -Wall -std=c99
+CFLAGS=-g -Wall -std=c99 -fno-stack-protector
 
 default: all
 

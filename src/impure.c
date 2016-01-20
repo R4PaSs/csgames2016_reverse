@@ -201,4 +201,5 @@ void third_mutation(void* mem) {
 
 void wrong_password() {
     puts("Wrong password !");
+    exit(0);
 }

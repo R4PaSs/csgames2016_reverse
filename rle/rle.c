@@ -4,6 +4,7 @@
 #include <errno.h>
 
 int encode_file(FILE *fin, FILE *fout);
+int decode_file(FILE *fin, FILE *fout);
 
 int main(int argc, char **argv) {
 	FILE *fin, *fout;
@@ -24,6 +25,7 @@ int main(int argc, char **argv) {
 	}
 
 	encode_file(fin, fout);
+	decode_file(fin, fout);
 
 	fclose(fin);
 	fclose(fout);
@@ -44,7 +46,7 @@ int encode_file(FILE *fin, FILE *fout) {
 	last_char = current_char;
 
 	while (1) {
-		nb_read = fread(&current_char, sizeof(current_char), 1, fin);
+		nb_read = fread(&current_char, sizeof(char), 1, fin);
 
 		if (current_char != last_char || nb_read == 0) {
 			fwrite(&counter, sizeof(uint8_t), 1, fout);
@@ -58,6 +60,23 @@ int encode_file(FILE *fin, FILE *fout) {
 				fwrite(&last_char, sizeof(char), 1, fout);
 				counter = 1;
 			}
+		}
+	}
+
+	return 0;
+}
+
+int decode_file(FILE *fin, FILE *fout) {
+	uint8_t count;
+	char c;
+	int i;
+
+	while (!feof(fin)) {
+		fread(&count, sizeof(uint8_t), 1, fin);
+		fread(&c, sizeof(char), 1, fin);
+
+		for (i = 0; i < count; ++i) {
+			fwrite(&c, sizeof(char), 1, fout);
 		}
 	}
 

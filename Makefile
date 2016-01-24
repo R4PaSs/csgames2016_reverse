@@ -4,14 +4,18 @@ CFLAGS=-std=c99
 
 default: all
 
-all: level1 level2 impure
+all: level1 level2 java1 rle
 	mkdir -p bin/
 
 level1:
-	$(CC) $(SRC)/level1.c -o bin/level1 -lcrypto $(CFLAGS)
+	$(CC) $(SRC)/bin1/bin1.c -o bin/bin1 -lcrypto $(CFLAGS)
 
 level2:
-	$(CC) $(SRC)/level2.c -o bin/level2 $(CFLAGS)
+	$(CC) $(SRC)/bin2/bin2.c -o bin/bin2 $(CFLAGS)
 
-impure:
-	$(CC) $(SRC)/impure.c -o bin/impure $(CFLAGS)
+java1:
+	cd src/java1/src && javac org/csgames/Java1.java && jar -cvfm ../../../bin/Java1.jar ../META-INF/MANIFEST.MF org/csgames/*.class
+
+rle:
+	cp $(SRC)/rle/rle.c bin/encoding.c
+

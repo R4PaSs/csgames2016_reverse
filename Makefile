@@ -5,7 +5,7 @@ RELEASE_PATH=bin
 
 default: all
 
-all: bin1 bin2 bin3 java1 rle
+all: bin1 bin2 bin3 bin4 java1 rle
 	mkdir -p bin/
 
 bin1:
@@ -18,9 +18,12 @@ bin3:
 	$(CC) $(SRC)/bin3/bin3.c -o $(RELEASE_PATH)/bin3 $(CFLAGS)
 	strip $(RELEASE_PATH)/bin3
 
+bin4:
+	$(CC) $(SRC)/bin4/bin4.c -o $(RELEASE_PATH)/bin4 $(CFLAGS)
+	strip $(RELEASE_PATH)/bin4
+
 java1:
 	cd src/java1/src && javac org/csgames/Java1.java && jar -cvfm ../../../$(RELEASE_PATH)/Java1.jar ../META-INF/MANIFEST.MF org/csgames/*.class
 
 rle:
 	cp $(SRC)/rle/rle.c $(RELEASE_PATH)/encoding.c
-

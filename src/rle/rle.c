@@ -25,7 +25,6 @@ int main(int argc, char **argv) {
 	}
 
 	encode_file(fin, fout);
-	decode_file(fin, fout);
 
 	fclose(fin);
 	fclose(fout);
@@ -60,23 +59,6 @@ int encode_file(FILE *fin, FILE *fout) {
 				fwrite(&last_char, sizeof(char), 1, fout);
 				counter = 1;
 			}
-		}
-	}
-
-	return 0;
-}
-
-int decode_file(FILE *fin, FILE *fout) {
-	uint8_t count;
-	char c;
-	int i;
-
-	while (!feof(fin)) {
-		fread(&count, sizeof(uint8_t), 1, fin);
-		fread(&c, sizeof(char), 1, fin);
-
-		for (i = 0; i < count; ++i) {
-			fwrite(&c, sizeof(char), 1, fout);
 		}
 	}
 

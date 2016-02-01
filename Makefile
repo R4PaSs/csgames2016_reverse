@@ -42,6 +42,7 @@ java2:
 
 rle:
 	cp $(SRC)/rle/rle.c $(RELEASE_PATH)/encoding/encoding.c
+	cp $(SRC)/rle/flag.bmp.encoded $(RELEASE_PATH)/encoding/flag.bmp.encoded
 
 clean:
 	rm -rf $(RELEASE_PATH)/

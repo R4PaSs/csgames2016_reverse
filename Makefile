@@ -5,7 +5,7 @@ RELEASE_PATH=bin
 
 default: all
 
-all: init bin1 bin2 bin3 bin4 brainfuck java1 rle
+all: init bin1 bin2 bin3 bin4 brainfuck java1 java2 rle
 
 init:
 	mkdir -p $(RELEASE_PATH)/bin1
@@ -35,7 +35,10 @@ brainfuck:
 	sed ':a;N;$$!ba;s/\n//g' $(SRC)/brainfuck/prog.bf > $(RELEASE_PATH)/brainfuck/prog.bf
 
 java1:
-	cd src/java1/src && javac org/csgames/Java1.java && jar -cvfm ../../../$(RELEASE_PATH)/java1/Java1.jar ../META-INF/MANIFEST.MF org/csgames/*.class
+	cd $(SRC)/java1/src && javac org/csgames/Java1.java && jar -cvfm ../../../$(RELEASE_PATH)/java1/Java1.jar ../META-INF/MANIFEST.MF org/csgames/*.class
+
+java2:
+	cd $(SRC)/java2/src && javac org/csgames/Java2.java && jar -cvfm ../../../$(RELEASE_PATH)/java2/Java2.jar ../META-INF/MANIFEST.MF org/csgames/*.class
 
 rle:
 	cp $(SRC)/rle/rle.c $(RELEASE_PATH)/encoding/encoding.c

@@ -5,9 +5,10 @@ RELEASE_PATH=bin
 
 default: all
 
-all: init bin1 bin2 bin3 bin4 brainfuck java1 java2 rle
+all: init asm bin1 bin2 bin3 bin4 brainfuck java1 java2 rle
 
 init:
+	mkdir -p $(RELEASE_PATH)/asm
 	mkdir -p $(RELEASE_PATH)/bin1
 	mkdir -p $(RELEASE_PATH)/bin2
 	mkdir -p $(RELEASE_PATH)/bin3
@@ -16,6 +17,9 @@ init:
 	mkdir -p $(RELEASE_PATH)/java1
 	mkdir -p $(RELEASE_PATH)/java2
 	mkdir -p $(RELEASE_PATH)/encoding
+
+asm:
+	cp $(SRC)/asm/unknown.asm $(RELEASE_PATH)/asm/unkown.asm
 
 bin1:
 	$(CC) $(SRC)/bin1/bin1.c -o $(RELEASE_PATH)/bin1/bin1 -lcrypto $(CFLAGS)

@@ -1,11 +1,11 @@
 CC=gcc
 SRC=src
 CFLAGS=-std=c99
-RELEASE_PATH=bin
+RELEASE_PATH=challenges
 
 default: all
 
-all: init asm bin1 bin2 bin3 bin4 brainfuck java1 java2 rle
+all: init asm bin1 bin2 bin3 bin4 brainfuck java1 java2 rle tar
 
 init:
 	mkdir -p $(RELEASE_PATH)/asm
@@ -47,6 +47,9 @@ java2:
 rle:
 	cp $(SRC)/rle/rle.c $(RELEASE_PATH)/encoding/encoding.c
 	cp $(SRC)/rle/flag.bmp.encoded $(RELEASE_PATH)/encoding/flag.bmp.encoded
+
+tar:
+	tar cfv release.tar.gz ./$(RELEASE_PATH)/ ./doc/ ./tools/
 
 clean:
 	rm -rf $(RELEASE_PATH)/

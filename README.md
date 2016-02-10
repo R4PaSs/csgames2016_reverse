@@ -1,5 +1,14 @@
 # Compétition de reversing
 
+# Créer le tarball
+
+Lancez make pour créer le tarball qui va contenir les challenges, la documentation de `doc/` et le decompilateur java dans `tools`
+
+```
+make
+```
+
+
 # À installer sur la machine
 
 ## Utilitaires

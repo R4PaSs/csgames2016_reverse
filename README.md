@@ -60,7 +60,7 @@ FLAG : UQAM{I_W1sh_I_H4d_IDA_inst4lled_But_Wh0_C4n_4ff0rd_Th4t}
 ## brainfuck
 C'est un petit programme brainfuck qui print le flag
 
-FLAG : UQAM{I_Lov3_S1Mpl3_Sp3Cicat1ons}
+FLAG : UQAM{I_Lov3_S1Mpl3_Sp3Cificat1ons}
 
 ## Encoding
 Je donne le source C d'un programme qui a servi à encoder un .bmp. C'est un rle custom. Ils doivent coder l'algo inverse pour décoder le bmp et obtenir le flag.

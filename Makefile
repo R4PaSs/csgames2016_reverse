@@ -39,7 +39,7 @@ brainfuck:
 	sed ':a;N;$$!ba;s/\n//g' $(SRC)/brainfuck/prog.bf > $(RELEASE_PATH)/brainfuck/prog.bf
 
 java1:
-	cd $(SRC)/java1/src && javac org/csgames/Java1.java && jar -cvfm ../../../$(RELEASE_PATH)/java1/Java1.jar ../META-INF/MANIFEST.MF org/csgames/*.class
+	cp $(SRC)/java1/src/org/csgames/Java1.java $(RELEASE_PATH)/java1/Java1.java
 
 java2:
 	cd $(SRC)/java2/src && javac org/csgames/Java2.java && jar -cvfm ../../../$(RELEASE_PATH)/java2/Java2.jar ../META-INF/MANIFEST.MF org/csgames/*.class
